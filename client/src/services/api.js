@@ -1,7 +1,7 @@
-import financial from "../assets/img/financial.avif";
-import science from "../assets/img/science.webp";
+import financial from "../assets/img/financial.jpg";
+import science from "../assets/img/science.jpeg";
 import environment from "../assets/img/environment.avif";
-import ai from "../assets/img/ai.webp";
+import ai from "../assets/img/ai.jpeg";
 
 const api = [
   {

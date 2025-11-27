@@ -1,19 +1,7 @@
-import { useState } from "react";
-import financial from "../assets/img/financial.avif";
+import financial from "../assets/img/financial.jpg";
 import api from "../services/api";
-import NewsCard from "./NewsCard";
 
-export default function News() {
-  const [visibleCountNews, setVisibleCountNews] = useState(4);
-  const [] = usest;
-
-  const loadMoreNews = () => {
-    setVisibleCountNews((prev) => prev + 4);
-
-    // if click زیاتر ببینە
-    setVisibleCountNews(20);
-  };
-
+export default function NewsDetails() {
   return (
     <div className="grid grid-cols-6">
       {/* Left Section */}
@@ -70,7 +58,7 @@ export default function News() {
         </div>
 
         {/* Content under نوێترین */}
-        {api.slice(0, 4).map((item) => (
+        {api.slice(0, 4).map(item => (
           <div className="flex items-center gap-3 my-10">
             <img
               src={item.image}
@@ -83,7 +71,7 @@ export default function News() {
       </div>
 
       <div className="col-span-6 grid grid-cols-4 gap-6 mx-9">
-        {api.slice(6, 6 + visibleCountNews).map((item) => (
+        {api.slice(6, 6 + visibleCountNews).map(item => (
           <div key={item.id}>
             <NewsCard
               title={item.title}
@@ -94,15 +82,19 @@ export default function News() {
         ))}
       </div>
 
-      {visibleCountNews < api.length - 6 && (
-        <div className="col-span-6 flex justify-center">
-          <h1
-            onClick={loadMoreNews}
-            className="cursor-pointer w-50 font-suhayb text-center text-2xl my-5 border-2 p-2 rounded-xl border-indigo-700 text-indigo-800 hover:bg-indigo-900 hover:text-white transition-all duration-300"
-          >
-            زیاتر ببینە
-          </h1>
-        </div>
+      {visibleNews && (
+        <>
+          {visibleCountNews < api.length - 6 && (
+            <div className="col-span-6 flex justify-center">
+              <h1
+                onClick={loadMoreNews}
+                className="cursor-pointer w-50 font-suhayb text-center text-2xl my-5 border-2 p-2 rounded-xl border-indigo-700 text-indigo-800 hover:bg-indigo-900 hover:text-white transition-all duration-300"
+              >
+                زیاتر ببینە
+              </h1>
+            </div>
+          )}
+        </>
       )}
     </div>
   );

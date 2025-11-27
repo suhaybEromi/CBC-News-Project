@@ -1,11 +1,9 @@
-import News from "../components/News";
-import NewsCard from "../components/NewsCard";
+import News from "./News";
 
 export default function Home() {
   return (
     <header dir="rtl">
       <News />
-      {/* <NewsCard /> */}
     </header>
   );
 }
